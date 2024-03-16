@@ -16,7 +16,7 @@ Currently, two official plugins are available:
 для запуска проекта необходимо склонировать репозиторий
 
 ```
-git clone https://github.com/Datsunco/online-library.git
+git clone https://github.com/Datsunco/ctypto-exchange-widget
 ```
 
 запустить проект в режиме разработки
