@@ -1,7 +1,9 @@
+import { Combobox } from "../ui/ComboBox";
+
 const Exchange = () => {
     return (
         <div>
-            TEST
+            <Combobox/>
         </div>
     );
 };
