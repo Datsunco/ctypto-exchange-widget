@@ -1,4 +1,4 @@
-import Exchange from './components/custom/Exchange'
+import Exchange from './components/custom/ExchangeWidget'
 
 function App() {
 
