@@ -40,19 +40,21 @@ export function Combobox() {
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger className="rounded-none rounded-r-xl" asChild>
                 <Button
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[120px] justify-between"
+                    className="w-[55px] h-[50px] justify-center  p-[5px]"
                 >
+                    <div className="flex flex-col text-[10px] pt-[5px]">
                     {value
-                        ? <img className="w-[25px] h-[25px]" src={frameworks.find((framework) => framework.value === value)?.path}/>
+                        ? <img className="w-[15px] h-[15px] m-auto" src={frameworks.find((framework) => framework.value === value)?.path}/>
                         : null}
                     {value
                         ? frameworks.find((framework) => framework.value === value)?.label
                         : "Выб..."}
+                    </div>
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
