@@ -41,10 +41,9 @@ interface ComboBoxProps{
     onSelectValue: (value: string) => void
 }
 
-export function Combobox({onSelectValue}: ComboBoxProps) {
-    const { currencyFrom} = useAppSelector(state => state.exchangeSlicer)
+export function ComboboxTo({onSelectValue}: ComboBoxProps) {
+    const { currencyTo} = useAppSelector(state => state.exchangeSlicer)
     const [open, setOpen] = React.useState(false)
-
 
     return (
         <div >
@@ -58,11 +57,11 @@ export function Combobox({onSelectValue}: ComboBoxProps) {
                         className="w-[60px] h-[45px] justify-center"
                     >
                         <div className="flex flex-col text-[10px] pt-[5px] font-bold">
-                            {currencyFrom
-                                ? <img className="w-[15px] h-[15px] m-auto" src={frameworks.find((framework) => framework.value === currencyFrom)?.path} />
+                            {currencyTo
+                                ? <img className="w-[15px] h-[15px] m-auto" src={frameworks.find((framework) => framework.value === currencyTo)?.path} />
                                 : null}
-                            {currencyFrom
-                                ? frameworks.find((framework) => framework.value === currencyFrom)?.label
+                            {currencyTo
+                                ? frameworks.find((framework) => framework.value === currencyTo)?.label
                                 : "Выб..."}
                         </div>
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -87,7 +86,7 @@ export function Combobox({onSelectValue}: ComboBoxProps) {
                                         <Check
                                             className={cn(
                                                 "mr-2 h-4 w-4",
-                                                currencyFrom === framework.value ? "opacity-100" : "opacity-0"
+                                                currencyTo === framework.value ? "opacity-100" : "opacity-0"
                                             )}
                                         />
                                         <img className="w-[25px] h-[25px]" src={framework.path} />

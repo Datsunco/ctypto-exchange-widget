@@ -46,6 +46,12 @@ const exchangeSlice = createSlice({
     setAmountTo: (state, action) => {
       state.amountTo = action.payload;
     },
+    swapCurrency: (state) => {
+      const tmp : string = state.currencyFrom
+      state.currencyFrom = state.currencyTo
+      state.currencyTo = tmp
+      calculateExchange()
+    },
     calculateExchange: (state) => {
       const rateFrom = state.exchangeRates[state.currencyFrom];
       const rateTo = state.exchangeRates[state.currencyTo];
@@ -68,5 +74,5 @@ const exchangeSlice = createSlice({
   }
 });
 
-export const { setCurrencyFrom, setCurrencyTo, setAmountFrom, setAmountTo, calculateExchange } = exchangeSlice.actions;
+export const { setCurrencyFrom, setCurrencyTo,swapCurrency, setAmountFrom, setAmountTo, calculateExchange } = exchangeSlice.actions;
 export default exchangeSlice.reducer;

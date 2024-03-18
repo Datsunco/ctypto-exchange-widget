@@ -1,12 +1,13 @@
 import { useAppDispath, useAppSelector } from "@/hooks/redux";
 import { Combobox } from "../ui/ComboBox";
 import { Input } from "../ui/input";
-import { setCurrencyFrom, setCurrencyTo, setAmountFrom, setAmountTo, calculateExchange } from "@/store/Slicers/exchangeSlicer";
+import { setCurrencyFrom, setCurrencyTo, setAmountFrom, setAmountTo, calculateExchange, swapCurrency } from "@/store/Slicers/exchangeSlicer";
 import { fetchExchangeRate } from "@/store/Actions/exchangeRateAction";
 import { ArrowRightLeft } from 'lucide-react'
 import { useEffect } from "react";
 import { Skeleton } from "../ui/skeleton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { ComboboxTo } from "./ComboBoxTo";
 
 
 const Exchange = () => {
@@ -31,12 +32,12 @@ const Exchange = () => {
                     <div className="flex row gap-[5px] items-center">
                         <div className="flex row">
                             <Input value={amountFrom} onChange={(e) => dispath(setAmountFrom(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
-                            <Combobox initValue={currencyFrom} onSelectValue={(e) => dispath(setCurrencyFrom(e))} />
+                            <Combobox status="from" initValue={currencyFrom} onSelectValue={(e) => dispath(setCurrencyFrom(e))} />
                         </div>
-                        <ArrowRightLeft className="w-[17px] h-[17px] text-slate-500" />
+                        <ArrowRightLeft className="w-[17px] h-[17px] text-slate-500" onClick={() => dispath(swapCurrency())}/>
                         <div className="flex row">
-                            <Input value={amountTo} onChange={(e) => dispath(setAmountTo(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
-                            <Combobox initValue={currencyTo} onSelectValue={(e) => dispath(setCurrencyTo(e))} />
+                            <Input disabled={true} value={amountTo} onChange={(e) => dispath(setAmountTo(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
+                            <ComboboxTo status="to" initValue={currencyTo} onSelectValue={(e) => dispath(setCurrencyTo(e))} />
                         </div>
                     </div>
                     </CardHeader>
