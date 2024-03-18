@@ -8,10 +8,11 @@ import { useEffect } from "react";
 import { Skeleton } from "../ui/skeleton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { ComboboxTo } from "./ComboBoxTo";
+import { Button } from "../ui/button";
 
 
 const Exchange = () => {
-    const { currencyFrom, currencyTo, amountFrom, amountTo, isLoadning, exchangeRates} = useAppSelector(state => state.exchangeSlicer)
+    const { currencyFrom, currencyTo, amountFrom, amountTo, isLoadning, exchangeRates } = useAppSelector(state => state.exchangeSlicer)
     const dispath = useAppDispath()
 
     useEffect(() => {
@@ -29,17 +30,19 @@ const Exchange = () => {
             {!isLoadning ?
                 <Card>
                     <CardHeader>
-                    <div className="flex row gap-[5px] items-center">
-                        <div className="flex row">
-                            <Input value={amountFrom} onChange={(e) => dispath(setAmountFrom(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
-                            <Combobox status="from" initValue={currencyFrom} onSelectValue={(e) => dispath(setCurrencyFrom(e))} />
+                        <div className="flex row gap-[5px] items-center">
+                            <div className="flex row">
+                                <Input value={amountFrom} onChange={(e) => dispath(setAmountFrom(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
+                                <Combobox status="from" initValue={currencyFrom} onSelectValue={(e) => dispath(setCurrencyFrom(e))} />
+                            </div>
+                            <Button variant="ghost">
+                                <ArrowRightLeft className="w-[17px] h-[17px] text-slate-500 cursor-pointer" onClick={() => dispath(swapCurrency())} />
+                            </Button>
+                            <div className="flex row">
+                                <Input disabled={true} value={amountTo} onChange={(e) => dispath(setAmountTo(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
+                                <ComboboxTo status="to" initValue={currencyTo} onSelectValue={(e) => dispath(setCurrencyTo(e))} />
+                            </div>
                         </div>
-                        <ArrowRightLeft className="w-[17px] h-[17px] text-slate-500" onClick={() => dispath(swapCurrency())}/>
-                        <div className="flex row">
-                            <Input disabled={true} value={amountTo} onChange={(e) => dispath(setAmountTo(e.target.value))} className="w-[150px] h-[45px] rounded-none rounded-l-lg text-right text-md font-medium" />
-                            <ComboboxTo status="to" initValue={currencyTo} onSelectValue={(e) => dispath(setCurrencyTo(e))} />
-                        </div>
-                    </div>
                     </CardHeader>
                     <CardContent>
                         <CardTitle className="text-md"> 1 {currencyFrom} = {exchangeRates[currencyFrom] / exchangeRates[currencyTo]} {currencyTo}</CardTitle>
