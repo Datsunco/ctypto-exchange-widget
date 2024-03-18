@@ -50,7 +50,7 @@ const exchangeSlice = createSlice({
       const rateFrom = state.exchangeRates[state.currencyFrom];
       const rateTo = state.exchangeRates[state.currencyTo];
       const convertedAmount = (state.amountFrom * rateFrom) / rateTo;
-      state.amountTo = convertedAmount;
+      state.amountTo = Number(convertedAmount.toFixed(8));
     },
   },
   extraReducers: (builder) => {

@@ -54,7 +54,7 @@ export function Combobox({initValue, onSelectValue}: ComboBoxProps) {
                         aria-expanded={open}
                         className="w-[60px] h-[45px] justify-center"
                     >
-                        <div className="flex flex-col text-[10px] pt-[5px]">
+                        <div className="flex flex-col text-[10px] pt-[5px] font-bold">
                             {value
                                 ? <img className="w-[15px] h-[15px] m-auto" src={frameworks.find((framework) => framework.value === value)?.path} />
                                 : null}
