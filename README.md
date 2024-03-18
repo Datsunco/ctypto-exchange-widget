@@ -10,11 +10,12 @@ Currently, two official plugins are available:
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![shadcn ui](https://img.shields.io/badge/shadcn_ui-black?style=for-the-badge&logo=shadcnui&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-blue?style=for-the-badgelogo=tailwindcsslogoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-blue?style=for-the-badgelogo=tailwindcss&logoColor=white)
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
 ## [Демо](https://github.com/Datsunco/ctypto-exchange-widget)
 
+![Demo](https://github.com/Datsunco/ctypto-exchange-widget/assets/124267923/0809f2cb-42e2-4928-bd20-92aa41d8378c)
 
 
 <h2 align="center">Запуск проекта</h2>
