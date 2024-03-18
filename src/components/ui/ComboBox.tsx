@@ -36,7 +36,7 @@ const frameworks = [
 
 interface ComboBoxProps{
     initValue: string 
-    onSelectValue: (value: string) => string
+    onSelectValue: (value: string) => void
 }
 
 export function Combobox({initValue, onSelectValue}: ComboBoxProps) {

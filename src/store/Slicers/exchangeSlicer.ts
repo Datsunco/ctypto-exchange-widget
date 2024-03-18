@@ -37,7 +37,7 @@ const exchangeSlice = createSlice({
        state.currencyFrom = action.payload;
     },
     setCurrencyTo: (state, action) => {
-        console.log(action.payload)
+        // console.log(action)
       state.currencyTo = action.payload;
     },
     setAmountFrom: (state, action) => {
@@ -58,13 +58,12 @@ const exchangeSlice = createSlice({
         state.isLoadning = false
         state.exchangeRates = action.payload
     }),
-    builder.addCase(fetchExchangeRate.pending, (state, action) => {
+    builder.addCase(fetchExchangeRate.pending, (state) => {
         state.isLoadning = true
-        state.exchangeRates = action
     }),
     builder.addCase(fetchExchangeRate.rejected, (state, action) => {
         state.isLoadning = false
-        state.error = action.payload
+        state.error = action.payload as string
     })
   }
 });
